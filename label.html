@@ -50,7 +50,7 @@
         <div class="flex-row">
           <div class="flex-item flex-column full-width">
             <div class="control-group">
-              <button id="next" class="custom-button-flat large stretch-on-mobile" disabled><img src="img/play.png"><span>Submit Result</span></button>
+              <button id="submit" class="custom-button-flat large stretch-on-mobile" disabled><img src="img/play.png"><span>Submit Result</span></button>
             </div>
           </div>
         </div>
@@ -61,6 +61,13 @@
     <p>Video autoplay is disabled. Please enable it.</p>
     <button id="play-video-button" class="custom-button">Enable video autoplay</button>
   </div>
+  <form id="mturk_form" name="mturk_form">
+    <input id="mturk-assignmentId" name="assignmentId" type="hidden">
+    <input id="submitted-from" name="submitted-from" type="hidden" value="crowd-page">
+    <input id="form-session-id" name="form-session-id" type="hidden">
+    <input id="label-data" name="label-data" type="hidden">
+  </form>
+
 </body>
 
 </html>
