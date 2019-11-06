@@ -76,6 +76,7 @@
       $(noteDiv).css("margin-left", "auto");
       $(noteDiv).css("margin-right", "auto");
       $(noteDiv).css("text-align", "center");
+      $(noteDiv).css("color", "white");
       var img = $("<img></img>")
       $(img).attr("src", "https://c2.staticflickr.com/4/3665/11276962563_8fc141d195.jpg");
       /* image from https://flic.kr/p/ibvo62 */
