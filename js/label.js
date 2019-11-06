@@ -112,7 +112,7 @@
           $submit.prop("disabled", true);
           var labels = video_labeling_tool.collectAndRemoveLabels();
           console.log(labels);
-          $("#label-data").attr("value", labels);
+          $("#label-data").attr("value", JSON.stringify(labels));
           submitToTurk();
         });
         // Check if video plays
