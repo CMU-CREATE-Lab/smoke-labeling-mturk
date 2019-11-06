@@ -113,6 +113,7 @@
           var labels = video_labeling_tool.collectAndRemoveLabels();
           console.log(labels);
           $("#label-data").attr("value", JSON.stringify(labels));
+          $("#batch-id").attr("value", gup("batch_id"));
           submitToTurk();
         });
         // Check if video plays
