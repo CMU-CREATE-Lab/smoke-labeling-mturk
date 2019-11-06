@@ -9,7 +9,7 @@
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/widgets.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/VideoLabelingTool.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/TutorialTool.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -18,9 +18,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="js/widgets.js"></script>
   <script src="js/Util.js"></script>
-  <script src="js/VideoLabelingTool.js"></script>
+  <script src="js/TutorialTool.js"></script>
   <script src="js/VideoTestDialog.js"></script>
-  <script src="js/label.js"></script>
+  <script src="js/tutorial_data.js"></script>
+  <script src="js/tutorial.js"></script>
 </head>
 
 <body>
@@ -38,19 +39,26 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <p class="text">
-              Each video is 3 seconds.
-              Click or tap to select videos that <u>have smoke</u>.
-              Click or tap again to deselect.
-              <span class="custom-text-danger-dark-theme">Skip a video if you are not sure whether it has smoke</span>.
-            </p>
+            <h3>Tutorial</h3>
+            <hr>
+            <p class="text" id="tutorial-tool-instruction"></p>
+            <div id="tutorial-end-text" class="force-hidden">
+              <p class="text no-bottom-margin">
+                <span class="custom-text-info-dark-theme">Congratulations! You have completed the tutorial</span> for identifying smoke emissions.
+              </p>
+              <div class="image adaptive-image" style="background-image: url('img/pan.png'); min-height: 130px;"></div>
+              <p class="text no-top-margin">
+                Please submit the result and finish this task.
+              </p>
+            </div>
           </div>
         </div>
-        <div id="labeling-tool-container"></div>
+        <div id="tutorial-tool-container"></div>
         <div class="flex-row">
           <div class="flex-item flex-column full-width">
             <div class="control-group">
-              <button id="submit" class="custom-button-flat large stretch-on-mobile" disabled><img src="img/play.png"><span>Submit Result</span></button>
+              <button id="next" class="custom-button-flat large stretch-on-mobile" disabled><img src="img/next.png"><span>Check Answer</span></button>
+              <button id="label" class="custom-button-flat large stretch-on-mobile force-hidden"><img src="img/play.png"><span>Submit Result</span></button>
             </div>
           </div>
         </div>
@@ -65,8 +73,6 @@
     <input id="mturk-assignmentId" name="assignmentId" type="hidden">
     <input id="submitted-from" name="submitted-from" type="hidden" value="crowd-page">
     <input id="form-session-id" name="form-session-id" type="hidden">
-    <input id="label-data" name="label-data" type="hidden">
-    <input id="batch-id" name="batch-id" type="hidden">
   </form>
 </body>
 
