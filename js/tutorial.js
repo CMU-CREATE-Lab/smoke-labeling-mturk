@@ -8,7 +8,7 @@
   var $next;
   var counter = 0;
   var max_counter = 10;
-  var count_down_duration = 0; // in milliseconds
+  var count_down_duration = 500; // in milliseconds
   var count_down_timeout;
   var _allowSubmit = false;
 
