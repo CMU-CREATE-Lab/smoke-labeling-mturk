@@ -53,7 +53,7 @@ def main(argv):
         m = mturk_labels[i]
         data = m["data"]
         worker_id = m["worker_id"]
-        if worker_id == "ASXRRKY1HG2OC": continue
+        if worker_id in ["ASXRRKY1HG2OC", "A2658LN9LNAR1D", "AMPMTF5IAAMK8"]: continue
         worker_data[worker_id]["num_all_batches"] += 1
         num_all_batches += 1
         mturk_tmp = []
@@ -100,13 +100,14 @@ def main(argv):
     df_w = pd.DataFrame.from_dict(worker_data, orient="index")
     df_w["reliability"] = df_w["num_batches"] / df_w["num_all_batches"]
     print(df_w.describe().round(2))
+    print(df_w)
 
 
 def describe_video_data(video_data, answer):
     video_data = add_system_labels(video_data, answer)
     for v_id in video_data:
         a = video_data[v_id]["mturk"]
-        video_data[v_id]["mturk"] = find_most_common(a, n=3)
+        video_data[v_id]["mturk"] = find_most_common(a)
     df_v = pd.DataFrame.from_dict(video_data, orient="index")
     print("Labeled %d videos" % len(df_v))
     print("Cohen's kappa (mturk and citizen): %.2f" % (cks(df_v["mturk"], df_v["citizen"])))
