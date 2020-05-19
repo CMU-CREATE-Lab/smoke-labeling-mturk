@@ -53,7 +53,7 @@ def experiment(debug=False):
         m = mturk_labels[i]
         data = m["data"]
         worker_id = m["worker_id"]
-        #if worker_id in ["ASXRRKY1HG2OC", "A2658LN9LNAR1D", "AMPMTF5IAAMK8"]: continue
+        if worker_id in ["ASXRRKY1HG2OC", "A2658LN9LNAR1D", "AMPMTF5IAAMK8"]: continue
         worker_data[worker_id]["num_all_batches"] += 1
         num_all_batches += 1
         mturk_tmp = []

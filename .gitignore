@@ -17,3 +17,5 @@ back-end/www/**/*.pt
 back-end/www/**/*.pkl
 mturk_batch_with_answers.json
 mturk_data.json
+metadata*.json
+
